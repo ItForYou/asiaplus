@@ -21,7 +21,7 @@ class ChoromeManager extends WebChromeClient {
     }
     ChoromeManager(){}
 
-
+    //어럴트 창 처리
     @Override
     public boolean onJsConfirm(WebView view, String url, String message, final JsResult result) {
         new AlertDialog.Builder(view.getContext())

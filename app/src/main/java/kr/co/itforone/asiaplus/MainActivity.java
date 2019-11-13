@@ -23,11 +23,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //버터나이프사용
         ButterKnife.bind(this);
 
+        //스플레시 인텐트
         Intent splash = new Intent(this,SplashActivity.class);
         startActivity(splash);
-
+        //웹뷰 세팅
         webView.addJavascriptInterface(new WebviewJavainterface(this),"Android");
         webView.setWebViewClient(new ClientManager(this));
         webView.setWebChromeClient(new ChoromeManager(this, this));
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         settings.setJavaScriptEnabled(true);
 
 
-
+        //리프레시 레이아웃 세팅
         refreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         webView.loadUrl(getString(R.string.index));
 
     }
-
+    //뒤로가기이벤트
     @Override
     public void onBackPressed(){
         if(webView.canGoBack()){
